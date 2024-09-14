@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>homelander</title>
+    <!-- Inclua o Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  </head>
+  <body>
+    <!-- O conteúdo do Vue.js -->
+    <div id="app">
+      <p>Contador: {{ contador }}</p>
+      <button @click="incrementarContador">Incrementar</button>
+      <button @click="decrementarContador">Decrementar</button>
+    </div>
+
+    <!-- Script Vue.js -->
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          contador: 0
+        },
+        methods: {
+          incrementarContador() {
+            this.contador++;
+          },
+          decrementarContador() {
+            this.contador--;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

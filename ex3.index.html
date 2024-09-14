@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista Dinâmica</title>
+  <!-- Inclua o Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <style>
+    /* Adiciona um pouco de estilo para a lista */
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      padding: 8px;
+      margin: 4px 0;
+      background-color: #f0f0f0;
+      border: 1px solid #ddd;
+      cursor: pointer;
+    }
+    li:hover {
+      background-color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <!-- O conteúdo do Vue.js -->
+  <div id="app">
+    <h1>Lista Dinâmica</h1>
+    <input v-model="novoItem" @keyup.enter="adicionarItem" placeholder="Digite um item e pressione Enter">
+    <ul>
+      <li v-for="(item, index) in lista" :key="index" @click="removerItem(index)">
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Script Vue.js -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        novoItem: '',
+        lista: []
+      },
+      methods: {
+        adicionarItem() {
+          if (this.novoItem.trim()) {
+            this.lista.push(this.novoItem.trim());
+            this.novoItem = ''; // Limpa o campo de entrada após adicionar o item
+          }
+        },
+        removerItem(index) {
+          this.lista.splice(index, 1);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

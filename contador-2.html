@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <template>
+        <div>
+            <p>Contador: {{ contador }}</p>
+            <button @click="incrementarContador">Incrementar</button>
+        </div>
+    </template>
+
+    <script>
+        export default {
+            data() {
+                return { contador: 0 };
+            },
+            methods: {
+                incrementarContador() {
+                    this.contador++;
+                }
+            },
+        };
+    </script>
+</body>
+</html>
